@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 
 const Statistic = styled.section`
   border: 1 px solid #fff;
@@ -58,5 +60,14 @@ const Statistics = ({ title, stats }) => {
     </Statistic>
   );
 }
+
+Statistics.defaultProps = {
+  title: "",
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.array.isRequired,
+};
 
 export default Statistics;

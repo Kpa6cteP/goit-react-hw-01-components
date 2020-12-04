@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 
 const Description = styled.div`
 padding: 15px 15px;
@@ -42,8 +44,18 @@ const DescriptionProfile = ({ avatar, name, tag, location }) => {
       <p className="tag">@{tag}</p>
       <p className="location">{location}</p>
     </Description>
-
   );
+}
+
+DescriptionProfile.defaultProps = {
+  avatar: "https://www.flaticon.com/svg/static/icons/svg/3784/3784184.svg",
+  name: "Jacques Gluke",
+}
+
+DescriptionProfile.PropTypes = {
+  avatar: PropTypes.string,
+  name: PropTypes.string,
+  location: PropTypes.string,
 }
 
 export default DescriptionProfile;
