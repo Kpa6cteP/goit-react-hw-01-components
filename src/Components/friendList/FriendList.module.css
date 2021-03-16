@@ -1,6 +1,9 @@
-import styled from 'styled-components';
-
-const Item = styled.li`
+.friendList{
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+.item{
   padding: 25px 10px;
   border: 1px solid #ddd;
   margin: 10px 0;
@@ -9,24 +12,21 @@ const Item = styled.li`
   flex-direction: row;
   justify-content: left;
   align-items: center;
-
+}
 .name {
   color: #000;
 }
 
-.online, .offline {
+.flagOnOff {
   width: 15px;
   height: 15px;
   border-radius: 100%;
-
 }
 .offline {
+  composes: flagOnOff ;
   background: red;
 }
-
 .online {
+  composes: flagOnOff ;
   background: green;
 }
-`;
-
-export default Item;

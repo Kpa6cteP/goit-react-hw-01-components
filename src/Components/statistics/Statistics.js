@@ -1,33 +1,19 @@
-import React from 'react';
-import Statistic from './StyledComponents';
-import PropTypes from 'prop-types';
+import React from 'react'
+import styles from './Statistics.module.css'
 
-
-
-const Statistics = ({ title, stats }) => {
+const Statistics = ({ stats, title }) => {
   return (
-    <Statistic className="statistics">
-      {title && (<h2 className="title">{title}</h2>)}
+    <section className={styles.statistics}>
+      {title && <h2 className={styles.title}>{title}</h2>}
 
-      <ul className="stat-list">
-        {stats.map((stat) => (
-          <li className="item" key={stat.id}>
-            <span className="label">{stat.label}</span>
-            <span className="percentage">{stat.percentage}</span>
-          </li>
-        ))}
+      <ul className={styles.statList}>
+        {stats.map(({ id, label, percentage }) => (<li className={styles.item} key={id}>
+          <span className={styles.label}>{label}</span>
+          <span className={styles.percentage}>{percentage}</span>
+        </li>))}
       </ul>
-    </Statistic>
-  );
+    </section>
+  )
 }
 
-Statistics.defaultProps = {
-  title: "",
-};
-
-Statistics.propTypes = {
-  title: PropTypes.string,
-  stats: PropTypes.array.isRequired,
-};
-
-export default Statistics;
+export default Statistics
